@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
-import { getMoviesApi } from '../apis/moviesApi'
+import { getMoviesThunk } from '../actions/moviesActions'
 
 function Home() {
   const movies = useSelector((store) => store.movies)
+  const dispatch = useDispatch()
 
   useEffect(async () => {
-    let movieArr = await getMoviesApi()
-    console.log(movieArr)
+    dispatch(getMoviesThunk())
   }, [])
 
   return (
