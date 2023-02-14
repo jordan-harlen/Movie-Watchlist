@@ -1,11 +1,23 @@
 import request from 'superagent'
 
-export async function getMoviesApi() {
-  try {
-    return request.get('/api/v1/movies').then((res) => {
+export function getMoviesApi() {
+  return request
+    .get('/api/v1/movies')
+    .then((res) => {
       return res.body
     })
-  } catch (err) {
-    console.error(err.message)
-  }
+    .catch((err) => {
+      console.log('getMoviesApi', err.message)
+    })
+}
+
+export function deleteMovieApi(movieId) {
+  return request
+    .delete(`/api/v1/movies/${movieId}`)
+    .then((res) => {
+      return res.body
+    })
+    .catch((err) => {
+      console.log('deleteMovieApi', err.message)
+    })
 }
