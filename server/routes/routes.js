@@ -12,4 +12,14 @@ router.get('/', async (req, res) => {
   }
 })
 
+router.delete('/:id', async (req, res) => {
+  try {
+    let id = req.params.id
+    let deletedMovie = await db.deleteMovie(id)
+    res.json(deletedMovie)
+  } catch (err) {
+    res.status(500).json({ msg: err.message })
+  }
+})
+
 module.exports = router
