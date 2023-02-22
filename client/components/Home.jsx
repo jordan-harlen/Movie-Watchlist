@@ -43,7 +43,6 @@ function Home() {
               <div className="card">
                 <img src={movie.img} alt="movie poster" />
                 <p>{movie.title}</p>
-                {movie.watch ? <p>Watched</p> : <p>Not Watched</p>}
                 <button
                   className="delete-button"
                   onClick={() => {
@@ -72,7 +71,6 @@ function Home() {
               <div className="card">
                 <img src={movie.img} alt="movie poster" />
                 <p>{movie.title}</p>
-                {movie.watch ? <p>Watched</p> : <p>Not Watched</p>}
                 <button
                   className="delete-button"
                   onClick={() => {
