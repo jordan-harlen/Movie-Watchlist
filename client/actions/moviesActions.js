@@ -3,6 +3,7 @@ import { addMovieApi, getMoviesApi } from '../apis/moviesApi'
 //Vars
 
 export const SAVE_MOVIES = 'SAVE_MOVIES'
+export const SAVE_ONE_MOVIE = 'SAVE_ONE_MOVIE'
 
 //Action Creators
 
@@ -10,6 +11,13 @@ function saveMovies(movieArr) {
   return {
     type: SAVE_MOVIES,
     payload: movieArr,
+  }
+}
+
+function saveOneMovie(movieObj) {
+  return {
+    type: SAVE_ONE_MOVIE,
+    payload: movieObj,
   }
 }
 
@@ -34,6 +42,7 @@ export function addMovie(movie) {
       imdb_id: movie.id,
     }
 
-    await addMovieApi(newMovie)
+    const movieFromServer = await addMovieApi(newMovie)
+    dispatch(saveOneMovie(movieFromServer))
   }
 }

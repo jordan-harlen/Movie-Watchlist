@@ -12,7 +12,13 @@ export function getMoviesApi() {
 }
 
 export function addMovieApi(newMovie) {
-  return request.post('/api/v1/movies').send(newMovie)
+  return request
+    .post('/api/v1/movies')
+    .send(newMovie)
+    .then((res) => {
+      console.log('RESPONSE', res.body)
+      return res.body
+    })
 }
 
 export function deleteMovieApi(movieId) {

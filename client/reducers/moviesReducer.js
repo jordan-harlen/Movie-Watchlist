@@ -1,4 +1,4 @@
-import { SAVE_MOVIES } from '../actions/moviesActions'
+import { SAVE_MOVIES, SAVE_ONE_MOVIE } from '../actions/moviesActions'
 
 export function movieReducer(state = [], action) {
   const { type, payload } = action
@@ -6,6 +6,8 @@ export function movieReducer(state = [], action) {
   switch (type) {
     case SAVE_MOVIES:
       return payload
+    case SAVE_ONE_MOVIE:
+      return [...state, payload]
     default:
       return state
   }

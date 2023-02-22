@@ -13,7 +13,7 @@ function Home() {
   useEffect(async () => {
     let moviesList = await getMoviesThunk()
     dispatch(moviesList)
-  }, [deletedMovie])
+  }, [])
 
   function handleDelete(movieId) {
     deleteMovieApi(movieId)

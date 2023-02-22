@@ -14,8 +14,15 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    await db.addMovie(req.body)
-    res.sendStatus(200)
+    const idArr = await db.addMovie(req.body)
+
+    const newObj = {
+      id: idArr[0],
+      ...req.body,
+      watched: false,
+    }
+
+    res.json(newObj)
   } catch (err) {
     res.sendStatus(500).json({ msg: err.message })
   }

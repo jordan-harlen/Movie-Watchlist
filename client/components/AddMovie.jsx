@@ -23,7 +23,6 @@ function AddMovie() {
 
   function handleAdd(movie) {
     dispatch(addMovie(movie))
-    console.log('adding', movie)
   }
 
   return (
