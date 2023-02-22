@@ -11,6 +11,10 @@ export function getMoviesApi() {
     })
 }
 
+export function addMovieApi(newMovie) {
+  return request.post('/api/v1/movies').send(newMovie)
+}
+
 export function deleteMovieApi(movieId) {
   return request
     .delete(`/api/v1/movies/${movieId}`)

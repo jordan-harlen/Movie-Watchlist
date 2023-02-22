@@ -46,6 +46,11 @@ function Home() {
                 >
                   Delete
                 </button>
+                {movie.watched ? (
+                  <button>Not watched?</button>
+                ) : (
+                  <button>Watched?</button>
+                )}
               </div>
             </>
           )

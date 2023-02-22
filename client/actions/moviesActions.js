@@ -1,4 +1,4 @@
-import { getMoviesApi } from '../apis/moviesApi'
+import { addMovieApi, getMoviesApi } from '../apis/moviesApi'
 
 //Vars
 
@@ -23,5 +23,17 @@ export function getMoviesThunk() {
     } catch (err) {
       console.error(err.message)
     }
+  }
+}
+
+export function addMovie(movie) {
+  return async (dispatch) => {
+    const newMovie = {
+      title: movie.title,
+      img: movie.image,
+      imdb_id: movie.id,
+    }
+
+    await addMovieApi(newMovie)
   }
 }

@@ -8,12 +8,18 @@
   font-size: 1.2em;
   justify-content: space-around;
 
-    & img {
+  & img {
       min-width: 250px;
       max-width: 250px;
       max-height: 370px;
       object-fit: cover;
       margin-bottom: 5px;
+  }
+  
+  & button {
+    margin-bottom: 5px;
+    padding: 10px;
+    font-size: large;
   }
 
   .card {
@@ -25,8 +31,3 @@
   }
 }
 
-.delete-button {
-  margin-bottom: 5px;
-  padding: 10px;
-  font-size: large;
-}

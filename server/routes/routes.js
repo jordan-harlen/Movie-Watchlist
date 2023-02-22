@@ -12,6 +12,15 @@ router.get('/', async (req, res) => {
   }
 })
 
+router.post('/', async (req, res) => {
+  try {
+    await db.addMovie(req.body)
+    res.sendStatus(200)
+  } catch (err) {
+    res.sendStatus(500).json({ msg: err.message })
+  }
+})
+
 router.delete('/:id', async (req, res) => {
   try {
     let id = req.params.id

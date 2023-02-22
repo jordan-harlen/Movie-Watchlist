@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 import { searchMovieApi } from '../apis/imdb'
+import { addMovie } from '../actions/moviesActions'
 
 function AddMovie() {
   const [movieSearch, setMovieSearch] = useState('')
   const [imdbResults, setImdbResults] = useState([])
+
+  const dispatch = useDispatch()
 
   async function handleSearch(e) {
     e.preventDefault()
@@ -18,6 +22,7 @@ function AddMovie() {
   }
 
   function handleAdd(movie) {
+    dispatch(addMovie(movie))
     console.log('adding', movie)
   }
 
