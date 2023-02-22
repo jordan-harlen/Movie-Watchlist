@@ -13,7 +13,6 @@ function Home() {
   useEffect(async () => {
     let moviesList = await getMoviesThunk()
     dispatch(moviesList)
-    console.log(deletedMovie)
   }, [deletedMovie])
 
   function handleDelete(movieId) {
@@ -28,7 +27,7 @@ function Home() {
 
   return (
     <>
-      <div>
+      <div className="home-title">
         <h1>Home</h1>
       </div>
       <div className="card-container">

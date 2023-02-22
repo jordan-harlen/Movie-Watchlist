@@ -19,7 +19,6 @@ export function getMoviesThunk() {
   return async (dispatch) => {
     try {
       let movieArr = await getMoviesApi()
-      console.log('thunk', movieArr)
       dispatch(saveMovies(movieArr))
     } catch (err) {
       console.error(err.message)
