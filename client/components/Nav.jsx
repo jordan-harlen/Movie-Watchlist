@@ -1,16 +1,23 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 function Nav() {
+  const location = useLocation()
+
+  const isHome = location.pathname === '/'
+
   return (
     <>
       <div className="nav">
-        <Link to="/">
-          <h3>Home</h3>
-        </Link>
-        <Link to="/add">
-          <h3>Add Movie</h3>
-        </Link>
+        {isHome ? (
+          <Link to="/add">
+            <h3>Add Movie</h3>
+          </Link>
+        ) : (
+          <Link to="/">
+            <h3>Home</h3>
+          </Link>
+        )}
       </div>
     </>
   )

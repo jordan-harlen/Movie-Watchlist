@@ -19,7 +19,6 @@ router.post('/', async (req, res) => {
     const newObj = {
       id: idArr[0],
       ...req.body,
-      watched: false,
     }
 
     res.json(newObj)
